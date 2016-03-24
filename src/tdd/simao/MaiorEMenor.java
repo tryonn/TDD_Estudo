@@ -1,6 +1,6 @@
 package tdd.simao;
 
-import tdd.simao.model.CarrinhCompras;
+import tdd.simao.model.CarrinhoCompras;
 import tdd.simao.model.Produto;
 
 public class MaiorEMenor {
@@ -8,18 +8,19 @@ public class MaiorEMenor {
 	private Produto menor;
 	private Produto maior;
 	
-	public void encontra(CarrinhCompras carrinho){
+	public double encontra(CarrinhoCompras carrinho){
 		
-		for (Produto p : carrinho.getProdutos()) {
+		if (carrinho.getItens().isEmpty()) return 0.0;
+		double maiorValor = carrinho.getItens().get(0).getValorTotal();
+		
+		for (int i = 0; i < carrinho.getItens().size(); i++) {
 			
-			if(menor == null || p.getValor() < menor.getValor()){
-				menor = p;
+			if (maiorValor < carrinho.getItens().get(i).getValorTotal()){
+				maiorValor = carrinho.getItens().get(i).getValorTotal();
 			}
 			
-			if (maior == null || p.getValor() > maior.getValor()){
-					maior = p;
-				}
-			}
+		}
+		return maiorValor;
 	}
 	
 	public Produto getMaior(){
