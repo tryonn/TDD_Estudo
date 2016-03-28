@@ -13,7 +13,7 @@ public class CalculadoraDeSalarioTest {
 	public void deveCalcularSalarioParaDesenvolvedoresComSalarioAbaixoDoLimite(){
 		
 		CalculadoraDeSalario calculadora = new CalculadoraDeSalario();
-		Funcionario funcionario = new Funcionario("Joao", 1500.0, Cargo.DESENVOLVEDOR);
+		Funcionario funcionario = new Funcionario("Joao", 3000.0, Cargo.DESENVOLVEDOR);
 		
 		double salario = calculadora.calcular(funcionario);
 		
@@ -23,7 +23,7 @@ public class CalculadoraDeSalarioTest {
 	@Test
 	public void deveCalcularSalarioParaDesenvolvedoresComSalarioAcimaDoLimite(){
 		CalculadoraDeSalario calculadoraDeSalario = new CalculadoraDeSalario();
-		Funcionario funcionario = new Funcionario("Silva", 4000.0, Cargo.DESENVOLVEDOR);
+		Funcionario funcionario = new Funcionario("Silva", 1500.0, Cargo.DESENVOLVEDOR);
 		
 		double salario = calculadoraDeSalario.calcular(funcionario);
 		
